@@ -1,7 +1,7 @@
 
 ---
 title: "첫 번째 개발 기록"
-date: 2026-10-31 03:00:00 +0900
+date: 2026-10-30 12:00:00 +0900
 categories: [개발]
 tags: [development]
 ---
