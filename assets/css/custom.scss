@@ -1,0 +1,41 @@
+assets/css/custom.scss
+
+/* ELOWEN - White & Navy Theme */
+
+/* 기본 배경 및 글자 색상 */
+:root {
+  --main-bg: #FFFFFF;
+  --sidebar-bg: #F1F6FC;
+  --text-color: #17365D;
+  --link-color: #3578C8;
+}
+
+/* 블로그 배경 */
+body {
+  background-color: #FFFFFF;
+}
+
+/* 사이드바 */
+#sidebar {
+  background-color: #F1F6FC;
+}
+
+/* 블로그 제목 */
+#sidebar .site-title {
+  color: #17365D;
+}
+
+/* 링크 색상 */
+a {
+  color: #3578C8;
+}
+
+/* 링크에 마우스를 올렸을 때 */
+a:hover {
+  color: #17365D;
+}
+
+/* 게시글 제목 */
+h1, h2, h3 {
+  color: #17365D;
+}
