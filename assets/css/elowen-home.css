@@ -165,3 +165,36 @@
     letter-spacing: -0.065em;
   }
 }
+
+/* ==========================================
+   ELOWEN - Smooth City Background
+   ========================================== */
+
+/* 도시 이미지를 히어로 전체에 표시 */
+.hero .hero-art {
+  inset: 0;
+  opacity: 1;
+
+  background-image:
+    linear-gradient(
+      90deg,
+      #031228 0%,
+      rgba(3, 18, 40, .95) 16%,
+      rgba(3, 18, 40, .65) 36%,
+      rgba(3, 18, 40, .25) 58%,
+      rgba(3, 18, 40, 0) 80%
+    ),
+    url('../img/elowen-city.jpg');
+
+  background-size: cover;
+  background-position: center center;
+}
+
+/* 모바일에서도 자연스럽게 표시 */
+@media (max-width: 700px) {
+  .hero .hero-art {
+    inset: 0;
+    opacity: .7;
+    background-position: 60% center;
+  }
+}
