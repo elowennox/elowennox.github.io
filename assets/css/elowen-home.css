@@ -165,3 +165,50 @@
     letter-spacing: -0.065em;
   }
 }
+/* ELOWEN SVG TITLE ONLY - keep existing background/menus unchanged */
+.hero .hero-logo {
+  position: relative;
+  display: block;
+  width: min(100%, 590px);
+  max-width: 100%;
+  margin: -13px 0 4px;
+  isolation: isolate;
+  line-height: 0;
+  animation: elowen-logo-jitter 2.7s steps(1, end) infinite;
+}
+.hero .hero-logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 0 9px rgba(35, 155, 255, .3));
+}
+.hero .hero-logo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: url('../img/elowen-title.svg') center / 100% 100% no-repeat;
+  filter: drop-shadow(3px 0 #34daff) drop-shadow(-3px 0 #b576f0);
+  animation: elowen-logo-slice 2.7s steps(1, end) infinite;
+}
+@keyframes elowen-logo-jitter {
+  0%, 18%, 21%, 61%, 64%, 100% { transform: translateX(0); }
+  19% { transform: translateX(-3px); }
+  20% { transform: translateX(2px); }
+  62% { transform: translateX(3px); }
+  63% { transform: translateX(-2px); }
+}
+@keyframes elowen-logo-slice {
+  0%, 18%, 21%, 61%, 64%, 100% {opacity:0;transform:translateX(0);clip-path:inset(0 0 0 0)}
+  19% {opacity:.78;transform:translateX(8px);clip-path:inset(28% 0 50% 0)}
+  20% {opacity:.75;transform:translateX(-7px);clip-path:inset(60% 0 13% 0)}
+  62% {opacity:.8;transform:translateX(-6px);clip-path:inset(20% 0 57% 0)}
+  63% {opacity:.65;transform:translateX(5px);clip-path:inset(66% 0 10% 0)}
+}
+@media (max-width: 700px) {
+  .hero .hero-logo {width:min(100%, 460px);margin:-8px 0 4px;}
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero .hero-logo, .hero .hero-logo::after { animation: none !important; }
+}
