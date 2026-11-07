@@ -1,5 +1,98 @@
 ---
-layout: categories
-icon: fas fa-stream
-order: 1
+layout: null
+title: Categories
+permalink: /categories/
 ---
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#030d1d">
+  <title>Categories | ELOWEN</title>
+  <link rel="stylesheet" href="{{ '/assets/css/elowen-home.css' | relative_url }}">
+  <style>
+    .category-page{min-height:100vh;background:#030d1d}
+    .category-page .topbar nav a.active:after{bottom:-14px}
+    .category-header{position:relative;overflow:hidden;margin:24px clamp(14px,2.2vw,38px) 0;min-height:280px;padding:48px clamp(25px,5vw,80px);border:1px solid #19466d;background:linear-gradient(100deg,rgba(2,13,31,.97),rgba(2,18,42,.8)),url('{{ '/assets/img/elowen-city.jpg' | relative_url }}') center 58%/cover}
+    .category-header:before{content:'';position:absolute;inset:0;background:linear-gradient(rgba(39,187,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(39,187,255,.06) 1px,transparent 1px);background-size:38px 38px;pointer-events:none}
+    .category-header>*{position:relative}
+    .category-header .prompt{font-size:14px;letter-spacing:.03em}
+    .category-header h1{margin:18px 0 10px;font:900 clamp(38px,5.8vw,76px)/1.12 Arial,sans-serif;letter-spacing:-.045em;text-shadow:3px 0 #0079c8,0 0 22px #004f83}
+    .category-header h1 span{color:#5bccff}
+    .category-header .desc{color:#a8c3d9;margin:0;font-size:15px}
+    .category-main{max-width:1450px;margin:auto;padding:38px clamp(18px,5vw,75px) 80px}
+    .directory-heading{display:flex;align-items:center;gap:12px;color:#eaf5ff;font:700 17px Consolas,monospace;letter-spacing:.05em;margin-bottom:22px}
+    .directory-heading:before{content:'';width:10px;height:10px;background:#80c5ff;box-shadow:0 0 10px #27bbff}
+    .directory-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .directory-card{display:block;min-height:146px;padding:24px;background:linear-gradient(145deg,#0b2542,#06142b);border:1px solid #265781;transition:transform .2s,border-color .2s,box-shadow .2s}
+    .directory-card:hover{transform:translateY(-3px);border-color:#48bfff;box-shadow:0 0 18px rgba(28,160,255,.16)}
+    .directory-card .folder{color:#4cc6ff;font-size:25px;line-height:1}
+    .directory-card strong{display:block;margin:12px 0 8px;color:#f2f9ff;font-size:17px;overflow-wrap:anywhere}
+    .directory-card small{color:#87acca;font-size:12px}
+    .directory-section{margin-top:45px;scroll-margin-top:20px}
+    .directory-section h2{font:700 clamp(19px,2.4vw,27px) Consolas,'Malgun Gothic',monospace;margin:0 0 13px;color:#eaf5ff}
+    .directory-section h2 .path{color:#47c7ff}
+    .directory-section .post-link{display:flex;align-items:center;gap:18px;padding:15px 10px;border-top:1px solid #1e4668;transition:background .2s}
+    .directory-section .post-link:last-child{border-bottom:1px solid #1e4668}
+    .directory-section .post-link:hover{background:#0a2441}
+    .directory-section .post-link .name{min-width:0;flex:1;overflow-wrap:anywhere}
+    .directory-section .post-link time{white-space:nowrap;color:#83aace;font-size:12px}
+    .category-page footer{margin-top:35px}
+    @media(max-width:850px){.directory-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:550px){.category-header{min-height:230px;padding:38px 25px}.directory-grid{grid-template-columns:1fr}.directory-card{min-height:115px}.directory-section .post-link{gap:9px;align-items:flex-start;flex-direction:column}}
+  </style>
+</head>
+<body class="category-page">
+<div class="site-frame">
+  <header class="topbar">
+    <a class="brand" href="{{ '/' | relative_url }}"><span class="brand-arrow">&gt;</span> ELOWEN<span class="cursor">_</span></a>
+    <nav aria-label="주 메뉴">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a class="active" href="{{ '/categories/' | relative_url }}">Categories</a>
+      <a href="{{ '/archives/' | relative_url }}">Archives</a>
+      <a href="{{ '/about/' | relative_url }}">About</a>
+      <a class="github" href="https://github.com/elowennox" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+  </header>
+  <main>
+    <section class="category-header">
+      <p class="prompt">root@elowen:~$ ls ./categories/</p>
+      <h1>CATEGORIES<span>_</span></h1>
+      <p class="desc">Topics, write-ups and study logs — 기술 기록을 분류해 둔 공간.</p>
+    </section>
+    <div class="category-main">
+      <div class="directory-heading">DIRECTORIES</div>
+      <div class="directory-grid">
+        {% assign categories_sorted = site.categories | sort %}
+        {% for category in categories_sorted %}
+          {% assign category_name = category[0] %}
+          {% assign category_posts = category[1] %}
+          <a class="directory-card" href="#category-{{ forloop.index }}">
+            <span class="folder" aria-hidden="true">▱</span>
+            <strong>{{ category_name | escape }}</strong>
+            <small>{{ category_posts.size }} POSTS &nbsp; → OPEN DIRECTORY</small>
+          </a>
+        {% else %}
+          <p>아직 등록된 카테고리가 없습니다.</p>
+        {% endfor %}
+      </div>
+      {% for category in categories_sorted %}
+        {% assign category_name = category[0] %}
+        {% assign category_posts = category[1] %}
+        <section class="directory-section" id="category-{{ forloop.index }}">
+          <h2><span class="path">~/categories/</span>{{ category_name | escape }}</h2>
+          {% for post in category_posts %}
+            <a class="post-link" href="{{ post.url | relative_url }}">
+              <span class="name">↳ {{ post.title | escape }}</span>
+              <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%Y.%m.%d' }}</time>
+            </a>
+          {% endfor %}
+        </section>
+      {% endfor %}
+    </div>
+  </main>
+  <footer><span>ELOWEN_ <i>|</i> Security · Embedded · CTF · Research</span><span>© {{ 'now' | date: '%Y' }} ELOWEN</span></footer>
+</div>
+</body>
+</html>
