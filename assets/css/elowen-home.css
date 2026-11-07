@@ -198,3 +198,37 @@
     background-position: 60% center;
   }
 }
+
+/* ==========================================
+   ELOWEN - City Background Size Fix
+   ========================================== */
+
+.hero .hero-art {
+  inset: 0;
+  opacity: 1;
+
+  background-image:
+    linear-gradient(
+      90deg,
+      #031228 0%,
+      rgba(3, 18, 40, .96) 12%,
+      rgba(3, 18, 40, .85) 27%,
+      rgba(3, 18, 40, .55) 43%,
+      rgba(3, 18, 40, .18) 63%,
+      rgba(3, 18, 40, 0) 82%
+    ),
+    url('../img/elowen-city.jpg');
+
+  background-size: 100% 100%, 70% auto;
+  background-position: center, right center;
+  background-repeat: no-repeat;
+  background-color: #031228;
+}
+
+/* 모바일 배경 */
+@media (max-width: 700px) {
+  .hero .hero-art {
+    background-size: 100% 100%, auto 75%;
+    background-position: center, right center;
+  }
+}
