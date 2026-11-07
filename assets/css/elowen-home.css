@@ -738,9 +738,3 @@ footer a:hover {
     letter-spacing: -0.065em;
   }
 }
-
-/* ELOWEN - Hide Hero Grid */
-
-.hero::before {
-  display: none;
-}
