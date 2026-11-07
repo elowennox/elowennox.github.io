@@ -1,4 +1,75 @@
 ---
-layout: home
-# Index page
+layout: null
+title: ELOWEN
 ---
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#030d1d">
+  <meta name="description" content="ELOWEN — 보안과 임베디드 시스템을 공부하고 기록하는 개인 기술 블로그">
+  <title>ELOWEN | Security Archive</title>
+  <link rel="stylesheet" href="{{ '/assets/css/elowen-home.css' | relative_url }}">
+</head>
+<body>
+  <div class="site-frame">
+    <header class="topbar">
+      <a class="brand" href="{{ '/' | relative_url }}"><span class="brand-arrow">&gt;</span> ELOWEN<span class="cursor">_</span></a>
+      <nav aria-label="주 메뉴">
+        <a class="active" href="{{ '/' | relative_url }}">Home</a>
+        <a href="{{ '/categories/' | relative_url }}">Categories</a>
+        <a href="{{ '/archives/' | relative_url }}">Archives</a>
+        <a href="{{ '/about/' | relative_url }}">About</a>
+        <a class="github" href="https://github.com/elowennox" aria-label="GitHub" target="_blank" rel="noopener">GitHub ↗</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-art" aria-hidden="true"></div>
+        <div class="hero-scanlines" aria-hidden="true"></div>
+        <span class="corner tl" aria-hidden="true"></span><span class="corner tr" aria-hidden="true"></span>
+        <span class="corner bl" aria-hidden="true"></span><span class="corner br" aria-hidden="true"></span>
+        <div class="hero-content">
+          <p class="eyebrow">// PERSONAL GITHUB BLOG</p>
+          <h1 id="hero-heading" class="glitch" data-text="ELOWEN_">ELOWEN<span>_</span></h1>
+          <p class="hero-subtitle">Security <b>·</b> Embedded <b>·</b> CTF <b>·</b> Research</p>
+          <a class="archive-button" href="#recent"><span>→</span> ENTER ARCHIVE</a>
+          <div class="terminal-note">
+            <p class="prompt">root@elowen:~$ cat about.txt</p>
+            <div class="terminal-text">보안과 임베디드 시스템을 공부하고,<br>실습과 연구를 기록하는 개인 기술 블로그입니다.<span class="blink">▍</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="dashboard" id="recent">
+        <div class="posts-column">
+          <div class="section-title"><h2><span class="square"></span> RECENT POSTS</h2><a href="{{ '/archives/' | relative_url }}">→ More</a></div>
+          <div class="posts-list">
+            {% for post in site.posts limit:5 %}
+            <a class="post-line" href="{{ post.url | relative_url }}">
+              <span class="post-category">{% if post.categories.size > 0 %}{{ post.categories | last | escape }}{% else %}POST{% endif %}</span>
+              <span class="post-name">{{ post.title | escape }}</span>
+              <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%Y.%m.%d' }}</time>
+            </a>
+            {% else %}
+            <p class="empty">아직 작성된 게시글이 없습니다.</p>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="categories-column">
+          <div class="section-title"><h2><span class="square"></span> CATEGORIES</h2></div>
+          <div class="category-grid">
+            <a class="category-tile" href="{{ '/categories/' | relative_url }}"><span class="tile-icon">◇</span><strong>Security</strong><small>Security Notes</small></a>
+            <a class="category-tile" href="{{ '/categories/' | relative_url }}"><span class="tile-icon">▦</span><strong>Embedded</strong><small>Systems</small></a>
+            <a class="category-tile" href="{{ '/categories/' | relative_url }}"><span class="tile-icon">⚑</span><strong>CTF</strong><small>Write-ups</small></a>
+            <a class="category-tile" href="{{ '/categories/' | relative_url }}"><span class="tile-icon">▱</span><strong>Research</strong><small>Archive</small></a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer><span>ELOWEN_ <i>|</i> Security · Embedded · CTF · Research</span><span>© {{ 'now' | date: '%Y' }} ELOWEN <i>|</i> <a href="https://github.com/elowennox">GitHub ↗</a></span></footer>
+  </div>
+</body>
+</html>
