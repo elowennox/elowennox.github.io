@@ -30,7 +30,32 @@ layout: none
         <div class="post-label-row"><span class="post-label">POST / {% if page.categories.size > 0 %}{{ page.categories | last | escape }}{% else %}ARCHIVE{% endif %}</span><span class="post-hatch" aria-hidden="true">▰▰▰</span></div>
         <div class="title-frame"><h1>{{ page.title | escape }}</h1><span class="window-dots" aria-hidden="true">▪ ▪ ▪</span></div>
         {% if page.description %}<p class="post-description">{{ page.description | escape }}</p>{% endif %}
-        <div class="post-meta"><span>▣ <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%Y.%m.%d' }}</time></span><span>◇ {% if page.categories.size > 0 %}{{ page.categories | join: ' / ' | escape }}{% else %}POST{% endif %}</span><span>⌁ <span id="read-time">읽는 시간 계산 중</span></span></div>
+        
+<div class="post-meta">
+  <span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#67c8ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="3" y="5" width="18" height="16" rx="2"/>
+      <path d="M16 3v4M8 3v4M3 10h18"/>
+    </svg>
+    <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%Y.%m.%d' }}</time>
+  </span>
+
+  <span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#67c8ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v10H3z"/>
+    </svg>
+    {% if page.categories.size > 0 %}{{ page.categories | join: ' / ' | escape }}{% else %}POST{% endif %}
+  </span>
+
+  <span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#67c8ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M12 7v5l3 2"/>
+    </svg>
+    <span id="read-time">읽는 시간 계산 중</span>
+  </span>
+</div>
+
       </header>
 
       {% if page.image %}
