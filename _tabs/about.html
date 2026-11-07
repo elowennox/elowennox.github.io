@@ -1,0 +1,113 @@
+---
+layout: none
+title: About
+permalink: /about/
+---
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#030d1d">
+  <meta name="description" content="ELOWEN 소개 — 보안, 임베디드 시스템, 차량 시스템 보안에 대한 관심과 학습 기록">
+  <title>About | ELOWEN</title>
+  <link rel="stylesheet" href="{{ '/assets/css/elowen-home.css' | relative_url }}">
+  <style>
+    .about-page { min-height: 100vh; background: #030d1d; }
+    .about-header { position:relative; overflow:hidden; margin:24px clamp(14px,2.2vw,38px) 0; min-height:300px; padding:52px clamp(25px,5vw,80px); border:1px solid #19466d; background: linear-gradient(100deg,rgba(2,13,31,.98) 0%,rgba(2,18,42,.87) 48%,rgba(2,18,42,.48) 100%),url('{{ '/assets/img/elowen-city.jpg' | relative_url }}') center 58%/cover; }
+    .about-header::before { content:''; position:absolute; inset:0; pointer-events:none; background:linear-gradient(rgba(39,187,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(39,187,255,.06) 1px,transparent 1px); background-size:38px 38px; }
+    .about-header > * { position:relative; }
+    .about-header h1 { margin:18px 0 11px; color:#f1f9ff; font:900 clamp(43px,6vw,78px)/1.12 Arial,sans-serif; letter-spacing:-.045em; text-shadow:3px 0 #008bdf,0 0 12px rgba(30,170,255,.6),0 0 28px rgba(30,140,255,.25); }
+    .about-header h1 span {color:#5bccff;}
+    .about-header .desc {color:#aec8df; font-size:15px; margin:0; }
+    .about-main { max-width:1460px; margin:auto; padding:42px clamp(20px,5vw,80px) 80px; }
+    .about-label {display:flex; gap:12px; align-items:center; font:700 17px Consolas,monospace; letter-spacing:.04em; margin:0 0 20px; color:#eaf5ff;}
+    .about-label::before {content:''; width:10px; height:10px; background:#87c6ff; box-shadow:0 0 10px #27bbff;}
+    .about-grid {display:grid; grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr); gap:24px;}
+    .terminal-window {border:1px solid #285d85; background:#06172e; min-width:0;}
+    .terminal-bar {border-bottom:1px solid #285d85; min-height:44px; padding:11px 17px; display:flex; align-items:center; gap:10px; background:#0c213b; color:#95bad7; font-size:12px;}
+    .terminal-dot {width:7px; height:7px; border-radius:50%; background:#3abafb; box-shadow:0 0 8px #188cd5;}
+    .terminal-body {padding:28px clamp(19px,3vw,35px) 32px;}
+    .terminal-command {color:#58ccff; font:14px/1.8 Consolas,'Malgun Gothic',monospace; overflow-wrap:anywhere; margin:0 0 18px;}
+    .terminal-body h2 {font-size:clamp(24px,2.6vw,34px); color:#edf7ff; margin:0 0 20px; letter-spacing:-.025em;}
+    .terminal-body p {font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif; color:#c3d6e6; font-size:15px; line-height:1.95; margin:0 0 13px;}
+    .terminal-body p:last-child {margin-bottom:0;}
+    .info-list {border:1px solid #285d85; padding:24px; background:linear-gradient(145deg,#0b2542,#06142b);}
+    .info-heading {margin:0 0 22px; color:#eaf5ff; font:700 16px Consolas,monospace;}
+    .info-line {display:grid; grid-template-columns:90px minmax(0,1fr); gap:12px; padding:13px 0; border-top:1px solid #1e4668; font-size:13px;}
+    .info-key {color:#71c8ff;}
+    .info-value {color:#d3e6f6; overflow-wrap:anywhere;}
+    .interests {margin-top:46px;}
+    .interest-grid {display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px;}
+    .interest-card {border:1px solid #2b5a88; background:linear-gradient(145deg,#0b2542,#06142b); padding:25px 23px; min-height:175px;}
+    .interest-card .mark {color:#50c9ff; font:24px Consolas,monospace; display:block; margin-bottom:16px;}
+    .interest-card h3 {font-size:17px; margin:0 0 12px; color:#f0f8ff;}
+    .interest-card p {font:13px/1.8 'Malgun Gothic','Apple SD Gothic Neo',sans-serif; margin:0; color:#a5c1d8;}
+    .about-links {margin-top:46px; border-top:1px solid #235071; padding-top:23px; display:flex; gap:14px; flex-wrap:wrap;}
+    .about-link {display:inline-flex; align-items:center; gap:12px; padding:12px 20px; border:1px solid #269fe7; color:#9bdcff; background:#081f37; font-size:14px; transition:background .2s,border-color .2s;}
+    .about-link:hover {background:#103451; border-color:#65d1ff;}
+    .about-page footer {margin-top:16px;}
+    @media(max-width:860px) {.about-grid {grid-template-columns:1fr;} .interest-grid {grid-template-columns:1fr 1fr;}}
+    @media(max-width:600px) {.about-header {min-height:250px; padding:40px 24px;} .about-header h1 {font-size:clamp(44px,12vw,64px);} .about-main {padding:28px 18px 56px;} .interest-grid {grid-template-columns:1fr;} .info-line {grid-template-columns:75px minmax(0,1fr);} }
+    @media(prefers-reduced-motion:reduce) {.about-link {transition:none;}}
+  </style>
+</head>
+<body class="about-page">
+<div class="site-frame">
+  <header class="topbar">
+    <a class="brand" href="{{ '/' | relative_url }}"><span class="brand-arrow">&gt;</span> ELOWEN<span class="cursor">_</span></a>
+    <nav aria-label="주 메뉴">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a href="{{ '/categories/' | relative_url }}">Categories</a>
+      <a href="{{ '/archives/' | relative_url }}">Archives</a>
+      <a class="active" href="{{ '/about/' | relative_url }}" aria-current="page">About</a>
+      <a class="github" href="https://github.com/elowennox" target="_blank" rel="noopener" aria-label="GitHub 프로필">GitHub ↗</a>
+    </nav>
+  </header>
+  <main>
+    <section class="about-header">
+      <p class="prompt">root@elowen:~$ whoami</p>
+      <h1>ABOUT<span>_</span></h1>
+      <p class="desc">The person behind the archive — ELOWEN을 소개합니다.</p>
+    </section>
+    <div class="about-main">
+      <h2 class="about-label">PROFILE</h2>
+      <div class="about-grid">
+        <section class="terminal-window" aria-label="자기소개">
+          <div class="terminal-bar"><span class="terminal-dot"></span> ~/about/profile.txt</div>
+          <div class="terminal-body">
+            <p class="terminal-command">root@elowen:~$ cat profile.txt</p>
+            <h2>안녕하세요. ELOWEN입니다.</h2>
+            <p>사이버보안과 임베디드 시스템을 공부하며, 배우고 직접 실습한 내용을 기록하고 있습니다.</p>
+            <p>특히 시스템이 어떻게 동작하고 서로 연결되는지, 그리고 그 과정에서 어떤 보안 문제가 생길 수 있는지에 관심이 있습니다.</p>
+            <p>이곳은 학습 내용부터 실습 과정, 시행착오까지 차근차근 모아두는 개인 기술 아카이브입니다.</p>
+          </div>
+        </section>
+        <aside class="info-list" aria-label="프로필 정보">
+          <h2 class="info-heading">// SYSTEM INFO</h2>
+          <div class="info-line"><span class="info-key">NAME</span><span class="info-value">ELOWEN</span></div>
+          <div class="info-line"><span class="info-key">FOCUS</span><span class="info-value">Cyber Security</span></div>
+          <div class="info-line"><span class="info-key">INTEREST</span><span class="info-value">Embedded / Automotive Security</span></div>
+          <div class="info-line"><span class="info-key">ARCHIVE</span><span class="info-value">CTF · Study Notes · Research</span></div>
+          <div class="info-line"><span class="info-key">STATUS</span><span class="info-value">Learning &amp; Exploring_</span></div>
+        </aside>
+      </div>
+      <section class="interests" aria-labelledby="interest-title">
+        <h2 id="interest-title" class="about-label">AREAS OF INTEREST</h2>
+        <div class="interest-grid">
+          <div class="interest-card"><span class="mark">01 /&gt;</span><h3>Cyber Security</h3><p>보안 개념과 취약점 분석, CTF 및 Wargame 실습을 통해 이해를 넓혀갑니다.</p></div>
+          <div class="interest-card"><span class="mark">02 /&gt;</span><h3>Embedded Systems</h3><p>하드웨어와 소프트웨어가 맞닿는 지점, 시스템 내부의 동작 원리를 공부합니다.</p></div>
+          <div class="interest-card"><span class="mark">03 /&gt;</span><h3>Automotive Security</h3><p>차량 내부 시스템과 통신, 자율주행 환경에서의 안전한 시스템 설계에 관심이 있습니다.</p></div>
+        </div>
+      </section>
+      <div class="about-links">
+        <a class="about-link" href="{{ '/archives/' | relative_url }}">→ EXPLORE ARCHIVE</a>
+        <a class="about-link" href="{{ '/categories/' | relative_url }}">→ VIEW CATEGORIES</a>
+        <a class="about-link" href="https://github.com/elowennox" target="_blank" rel="noopener">↗ GITHUB</a>
+      </div>
+    </div>
+  </main>
+  <footer><span>ELOWEN_ <i>|</i> Security · Embedded · CTF · Research</span><span>© {{ 'now' | date: '%Y' }} ELOWEN</span></footer>
+</div>
+</body>
+</html>
