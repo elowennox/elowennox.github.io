@@ -1,0 +1,101 @@
+---
+---
+@use 'abstracts/variables' with (
+  $theme: '{{ site.theme_mode }}'
+);
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+/* ELOWEN / Post-only cyberpunk skin. Keeps Chirpy post layout and scripts. */
+body:has(article[data-toc]) {
+  --main-bg: #030d1d;
+  --sidebar-bg: #071426;
+  --topbar-bg: #061426;
+  --card-bg: #0a1b32;
+  --text-color: #dbeafa;
+  --heading-color: #f2f8ff;
+  --link-color: #65c9ff;
+  --text-muted-color: #98b8d3;
+  --border-color: #244766;
+  background: #030d1d !important;
+  color: #dbeafa;
+}
+body:has(article[data-toc]) #main-wrapper,
+body:has(article[data-toc]) #main-wrapper > .container,
+body:has(article[data-toc]) #main-wrapper main,
+body:has(article[data-toc]) #topbar-wrapper {
+  background: #030d1d !important;
+}
+body:has(article[data-toc]) #sidebar {
+  background: linear-gradient(180deg, #061226, #0a1d36) !important;
+  border-right: 1px solid #1d547c;
+}
+body:has(article[data-toc]) #sidebar .site-title,
+body:has(article[data-toc]) #sidebar .nav-link,
+body:has(article[data-toc]) article header h1,
+body:has(article[data-toc]) article .content h2,
+body:has(article[data-toc]) article .content h3 {
+  color: #f1f8ff !important;
+}
+body:has(article[data-toc]) article header h1 {
+  font-weight: 800;
+  letter-spacing: -.025em;
+  text-shadow: 2px 0 #1276b4, 0 0 20px rgba(28, 151, 230, .18);
+}
+body:has(article[data-toc]) article .content {
+  color: #d9e8f6;
+  line-height: 1.85;
+  overflow-wrap: anywhere;
+}
+body:has(article[data-toc]) article .content h2 {
+  border-bottom: 1px solid #224b71;
+  padding-bottom: .5rem;
+  margin-top: 2.3rem;
+}
+body:has(article[data-toc]) article .content h2::before {
+  content: '› ';
+  color: #39c5ff;
+}
+body:has(article[data-toc]) a:not(.btn),
+body:has(article[data-toc]) .post-meta a {
+  color: #75ceff;
+}
+body:has(article[data-toc]) article .content blockquote {
+  border-left: 3px solid #26baff;
+  background: #091c35;
+  color: #c8dfef;
+  padding: .7rem 1rem;
+}
+body:has(article[data-toc]) article .content pre,
+body:has(article[data-toc]) article .content .highlight {
+  border: 1px solid #24577e;
+  border-radius: 4px;
+}
+body:has(article[data-toc]) article .content :not(pre) > code {
+  color: #8bd9ff;
+  background: #10263e;
+  padding: .1em .35em;
+  border-radius: 3px;
+}
+body:has(article[data-toc]) article .content img {
+  max-width: 100%;
+  border-radius: 4px;
+}
+body:has(article[data-toc]) article .content table {
+  border-color: #2a5477;
+}
+body:has(article[data-toc]) #toc-wrapper,
+body:has(article[data-toc]) #panel-wrapper {
+  color: #a8c5df;
+}
+body:has(article[data-toc]) #topbar,
+body:has(article[data-toc]) #topbar-wrapper {
+  border-bottom-color: #204d74;
+}
+@media (prefers-reduced-motion: reduce) {
+  body:has(article[data-toc]) * { scroll-behavior: auto; }
+}
