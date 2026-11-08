@@ -583,7 +583,7 @@ footer a:hover {
 .hero .glitch {
   position: relative;
   isolation: isolate;
-  animation: elowen-glitch 2.7s infinite;
+  animation: elowen-glitch 1.8s infinite;
 }
 
 /* 파란색 / 보라색 글리치 잔상 */
@@ -598,7 +598,7 @@ footer a:hover {
     -3px 0 #00cfff,
     3px 0 #b16cff;
   clip-path: inset(0 0 0 0);
-  animation: elowen-glitch-ghost 2.7s infinite;
+  animation: elowen-glitch-ghost 1.8s infinite;
 }
 
 /* 기존의 가로 스캔 라인은 그대로 유지 */
