@@ -1,7 +1,7 @@
 ---
 title: "[Security] Fuzzing과 Fuzzer의 개념 및 종류"
 date: 2026-11-26 14:30:00 +0900
-categories: [BugBounty]
+categories: [Bug Bounty]
 tags: [Fuzzing, Fuzzer, Security, Vulnerability, AFL++, libFuzzer]
 ---
 
