@@ -126,15 +126,13 @@ AI 기반 해킹 도구는 정보 수집, 취약점 탐색 및 보안 도구 실
 
 신한은행 사고의 주요 흐름을 정리하면 다음과 같다.
 
-```text
-외부에 공개된 업무 지원 서비스
-        ↓
-본인 확인 절차 우회
-        ↓
-비인가 사용자의 고객 정보 접근
-        ↓
-개인정보 및 개인신용정보 유출
-```
+<p align="center">
+  <img src="/assets/img/security-incidents/shinhan-attack-flow.png"
+       alt="신한은행 개인정보 유출 사고 흐름도"
+       style="width: 85%; max-width: 860px; border-radius: 12px;">
+</p>
+
+<p align="center"><em>그림 1. 신한은행 개인정보 유출 사고 발생 과정</em></p>
 
 ## 4. 피해 규모
 
