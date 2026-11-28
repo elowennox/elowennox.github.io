@@ -109,19 +109,13 @@ MPC는 여러 주체가 각자의 비밀 정보를 직접 공개하지 않고 �
 
 전체적인 사고 흐름은 다음과 같다.
 
-```text
-개발자를 대상으로 한 사회공학 공격
-        ↓
-악성 소프트웨어 설치 및 업무용 컴퓨터 침해
-        ↓
-내부 시스템 접근권한 확보
-        ↓
-지갑 서명 시스템 침해
-        ↓
-비인가 거래 및 권한 위임
-        ↓
-가상자산 탈취
-```
+<p align="center">
+  <img src="/assets/img/security-incidents/binance-attack-flow.png"
+       alt="바이낸스 가상자산 탈취 사고 흐름도"
+       style="width: 85%; max-width: 860px; border-radius: 12px;">
+</p>
+
+<p align="center"><em>그림 1. 바이낸스 가상자산 탈취 사고 발생 과정</em></p>
 
 ## 4. 피해 규모
 
