@@ -85,19 +85,13 @@ access_key = "example_access_key"
 
 전체적인 사고 흐름은 다음과 같다.
 
-```text
-개발환경 접속키 탈취
-        ↓
-개발환경 무단 접근
-        ↓
-소스코드 및 운영환경 접속키 유출
-        ↓
-운영환경 무단 접근
-        ↓
-데이터베이스 접근
-        ↓
-개인정보 유출
-```
+<p align="center">
+  <img src="/assets/img/security-incidents/tving-attack-flow.png"
+       alt="티빙 개인정보 유출 사고 흐름도"
+       style="width: 85%; max-width: 860px; border-radius: 12px;">
+</p>
+
+<p align="center"><em>그림 1. 티빙 개인정보 유출 사고 발생 과정</em></p>
 
 ## 4. 피해 규모
 
